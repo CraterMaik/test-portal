@@ -1,8 +1,6 @@
   
 import {useState,useEffect,Fragment} from 'react';
 import {useTheme} from 'next-themes';
-import {Disclosure} from '@headlessui/react'
-import {MenuIcon, XIcon, BellIcon} from '@heroicons/react/outline';
 import {MoonIcon, SunIcon} from '@heroicons/react/solid';
 import { classNames } from '../utils/classNames';
 
@@ -17,7 +15,7 @@ export default function NavBar() {
   const renderThemeChanger = () => {
     if(!mounted) return null;
     const currentTheme = theme === 'system' ? systemTheme : theme;
-
+    console.log(currentTheme)
     if (currentTheme === 'dark') {
       return (
         <SunIcon className="w-7 h-7" role="button" onClick={() => setTheme('light') } />
@@ -30,52 +28,31 @@ export default function NavBar() {
   }
 
   return (
-    <Disclosure as="nav" className="z-40 bg-gradient-to-r from-gray-900 to-gray-800">
-      {({ open }) => (
-        <>
-          <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-            <div className="relative flex items-center justify-between h-16">
-              <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                {/* Mobile menu button*/}
-                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                  <span className="sr-only">Open main menu</span>
-                  {open ? (
-                    <XIcon className="block h-6 w-6" aria-hidden="true" />
-                  ) : (
-                    <MenuIcon className="block h-6 w-6" aria-hidden="true" />
-                  )}
-                </Disclosure.Button>
-              </div>
-              <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex-shrink-0 flex items-center">
-                  <img
-                    className="block lg:hidden h-8 w-auto"
-                    src="https://i.imgur.com/kU6Y9Ac.png"
-                    alt="portalmybot"
-                  />
-                  <img
-                    className="hidden lg:block h-8 w-auto"
-                    src="https://i.imgur.com/kU6Y9Ac.png"
-                    alt="portalmybot"
-                  />
-                </div>
-              </div>
-               
-               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <button
-                  type="button"
-                  className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                >
-                  <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
-                {renderThemeChanger()}
-              </div>
-            </div>
-          </div>
-          
-        </>
-      )}
-    </Disclosure>
+    <>
+      <div className="text-gray-600 body-font">
+        <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+          <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+            <span className="ml-3 text-xl text-blue-500">Tailblocks</span>
+          </a>
+          <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
+            <a href="/" className="mr-5 hover:text-gray-900">First Link</a>
+            <a href="/" className="mr-5 hover:text-gray-900">Second Link</a>
+            <a href="/" className="mr-5 hover:text-gray-900">Third Link</a>
+            <a href="/" className="mr-5 hover:text-gray-900">Fourth Link</a>
+          </nav>
+          <button className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
+            {renderThemeChanger()}
+          </button>
+          <button className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Button
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="w-4 h-4 ml-1" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </>
   )
 }
