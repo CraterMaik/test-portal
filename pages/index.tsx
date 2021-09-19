@@ -39,7 +39,7 @@ export default function Home() {
             </button>
             <div className="flex items-center" aria-label="Home" data-balloon-pos="right">
               <a aria-current="page" href="/" className="flex flex-row overflow-hidden text-gray-900 no-underline cursor-pointer sm:mr-4 hover:text-gray-800 dark:text-gray-100 hover:no-underline">
-                <img src="https://i.imgur.com/kU6Y9Ac.png" className="w-6 h-6 overflow-hidden" draggable="false" alt="Portalmybot" loading="lazy" />
+                <img src="https://i.imgur.com/kU6Y9Ac.png" className="w-7 h-6 overflow-hidden" draggable="false" alt="Portalmybot" loading="lazy" />
                 <div className="flex-col justify-end hidden pl-4 text-sm lg:flex">Portal MyBOT</div>
               </a>
             </div>

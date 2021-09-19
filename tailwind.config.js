@@ -7,7 +7,12 @@ module.exports = {
   ],
   darkMode: 'class',
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sora: ["Sora", "sans-serif"],
+        fira: ["Fira Code", "monospace"],
+      },
+    },
   },
   variants: {
     extend: {},
