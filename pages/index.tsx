@@ -43,7 +43,6 @@ export default function Home() {
                 <div className="flex-col justify-end hidden pl-4 text-sm lg:flex">Portal MyBOT</div>
               </a>
             </div>
-
           </div>
           <div className="flex content-center justify-end md:flex lg:w-1/2 md:w-3/4 md:justify-end">
             <ul className="flex items-center justify-end flex-1 md:flex-none">
