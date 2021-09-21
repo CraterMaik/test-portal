@@ -1,6 +1,5 @@
 import Head from 'next/head'
-import "tailwindcss/tailwind.css";
-import NavBar from '../component/nav/Navbar';
+import NavBar from '../components/header/Navbar';
 
 export default function Home() {
 

@@ -1,8 +1,7 @@
   
-import {useState,useEffect,Fragment} from 'react';
+import {useState,useEffect} from 'react';
 import {useTheme} from 'next-themes';
 import {MoonIcon, SunIcon} from '@heroicons/react/solid';
-import { classNames } from '../utils/classNames';
 
 export default function NavBar() { 
   const {systemTheme, theme, setTheme} = useTheme();
