@@ -7,7 +7,7 @@
 
 @layer base {
   body {
-    @apply bg-gray-50 font-sora text-gray-900 dark:bg-gray-900 dark:text-gray-100;
+    @apply bg-gray-50 font-sora text-gray-900 dark:bg-gray-800 dark:text-gray-100;
     @apply min-h-screen;
   }
   ::selection {
