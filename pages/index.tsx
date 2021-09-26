@@ -1,6 +1,6 @@
 import React from "react";
 import NavBar from '../components/header/Navbar';
-import {ViewBoardsIcon, TerminalIcon, ViewGridIcon, ServerIcon} from '@heroicons/react/solid';
+import {ViewBoardsIcon, TerminalIcon, ViewGridIcon, ServerIcon, AnnotationIcon, HeartIcon, ClockIcon} from '@heroicons/react/solid';
 
 export default function Home() {
 
@@ -91,12 +91,18 @@ export default function Home() {
                                     <span className="flex justify-between">
                                       <div className="flex justify-between">
                                         <p className="flex items-center justify-between mx-2 text-xs text-left rounded-full">
+                                          <HeartIcon className="h-4 w-4 mr-2"/>
                                           <span>3</span>
+                                        </p>
+                                        <p className="flex items-center justify-between mx-2 text-xs text-left rounded-full">
+                                          <AnnotationIcon className="h-4 w-4 mr-2" />
+                                          <span>13</span>
                                         </p>
 
                                       </div>
-                                      <p className="inline-block px-1 m-0 text-xs truncate bg-gray-200 rounded-lg rounded-r-sm dark:bg-gray-700">
-                                        2 min read
+                                      <p className="flex inline-block px-1 m-0 text-xs truncate bg-gray-200 rounded-lg rounded-r-sm dark:bg-gray-700">
+                                        <ClockIcon className="h-4 w-4 mr-2 pr-1"/>
+                                        2 min
                                       </p>
 
                                     </span>
