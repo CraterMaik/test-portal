@@ -1,6 +1,6 @@
 import React from "react";
 import NavBar from '../components/header/Navbar';
-import Nav from '../components/sections/nav';
+import Nav from '../components/sections/Nav';
 import Home from '../components/sections/Home';
 import NavRight from '../components/sections/NavRight';
 

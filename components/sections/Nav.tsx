@@ -1,4 +1,4 @@
-import {ViewBoardsIcon, TerminalIcon, ViewGridIcon, ServerIcon} from '@heroicons/react/solid';
+import {ViewBoardsIcon, TerminalIcon, ViewGridIcon, ServerIcon, CollectionIcon, BeakerIcon, UsersIcon, ChartBarIcon, VideoCameraIcon, HomeIcon} from '@heroicons/react/solid';
 
 export default function Nav() { 
   return (
@@ -6,15 +6,32 @@ export default function Nav() {
         <div className="mt-24 md:mt-20">
           <ul className="text-left list-inside">
               <li className="flex items-center font-medium pl-3 py-2 mb-1 cursor-pointer hover:bg-gray-200 menu-not-active dark:hover:bg-gray-900 hover:rounded">
-                <ViewGridIcon className="h-7 w-7 mr-2" />
-                Guías
+                <HomeIcon className="h-6 w-6 mr-2" />
+                Inicio
               </li>
               <li className="flex items-center font-medium pl-3 py-2 mb-1 cursor-pointer hover:bg-gray-200 menu-not-active dark:hover:bg-gray-900 hover:rounded">
-                <TerminalIcon className="h-7 w-7 mr-2" />
+                <ViewGridIcon className="h-6 w-6 mr-2" />
+                Guías
+              </li>
+              
+              <li className="flex items-center font-medium pl-3 py-2 mb-1 cursor-pointer hover:bg-gray-200 menu-not-active dark:hover:bg-gray-900 hover:rounded">
+                <TerminalIcon className="h-6 w-6 mr-2" />
                 Códigos
               </li>
               <li className="flex items-center font-medium pl-3 py-2 mb-1 cursor-pointer hover:bg-gray-200 menu-not-active dark:hover:bg-gray-900 hover:rounded">
-                <ServerIcon className="h-7 w-7 mr-2" />
+                <UsersIcon className="h-6 w-6 mr-2" />
+                Usuarios
+              </li>
+              <li className="flex items-center font-medium pl-3 py-2 mb-1 cursor-pointer hover:bg-gray-200 menu-not-active dark:hover:bg-gray-900 hover:rounded">
+                <BeakerIcon className="h-6 w-6 mr-2" />
+                Logros
+              </li>
+              <li className="flex items-center font-medium pl-3 py-2 mb-1 cursor-pointer hover:bg-gray-200 menu-not-active dark:hover:bg-gray-900 hover:rounded">
+                <ChartBarIcon className="h-6 w-6 mr-2" />
+                Estadisticas
+              </li>
+              <li className="flex items-center font-medium pl-3 py-2 mb-1 cursor-pointer hover:bg-gray-200 menu-not-active dark:hover:bg-gray-900 hover:rounded">
+                <ServerIcon className="h-6 w-6 mr-2" />
                 MyBOT List
               </li>
           </ul>
@@ -24,8 +41,16 @@ export default function Nav() {
           </h3>
           <ul className="text-left list-inside">
              <li className="flex items-center font-medium pl-3 py-2 mb-1 cursor-pointer hover:bg-gray-200 menu-not-active dark:hover:bg-gray-900 hover:rounded">
-              <ViewBoardsIcon className="h-7 w-7 mr-2" />
+              <ViewBoardsIcon className="h-6 w-6 mr-2" />
               Cursos
+            </li>
+            <li className="flex items-center font-medium pl-3 py-2 mb-1 cursor-pointer hover:bg-gray-200 menu-not-active dark:hover:bg-gray-900 hover:rounded">
+              <VideoCameraIcon className="h-6 w-6 mr-2" />
+              Videos
+            </li>
+            <li className="flex items-center font-medium pl-3 py-2 mb-1 cursor-pointer hover:bg-gray-200 menu-not-active dark:hover:bg-gray-900 hover:rounded">
+              <CollectionIcon className="h-6 w-6 mr-2" />
+              Package NPM
             </li>
           </ul>
        </div>

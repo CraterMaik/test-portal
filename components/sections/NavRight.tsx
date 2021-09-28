@@ -24,7 +24,7 @@ export default function NavRight() {
 
           </div>
           <div className="p-2 mt-5 text-left bg-white rounded-t-lg dark:bg-gray-900 shadow-card">
-            <h1 className="mx-1">Top Users</h1>
+            <h1 className="mx-1">Top Usuarios</h1>
           </div>
           <hr className="dark:border-gray-800" />
           <div className="flex flex-col mb-5 overflow-auto text-sm text-left bg-white rounded-b-lg scrollbar dark:bg-gray-900 h-96 shadow-card">
