@@ -5,9 +5,9 @@ export default function Home() {
     <div className="h-full lg:w-2/4 flex-grow overflow-hidden md:mx-6">
       <div className="mt-20 mb-16 md:mt-20 sm:mt-14">
         <main>
-          <div>
+          
             <div className="mb-10">
-              <div>
+              
                 <div className="mb-3">
                    <a className="cursor-pointer" href="https://portalmybot.com">
                       <div className="rounded-lg mx-2 cursor-pointer text-left bg-white hover:bg-opacity-50 border-b group border-gray-200 shadow-card dark:border-gray-800 dark:bg-gray-900 dark:text-gray-100">
@@ -75,9 +75,9 @@ export default function Home() {
                       </div>
                     </a>
                   </div>
-                 </div>
+                 
               </div>
-            </div>
+            
           </main>
         </div>
     </div>
