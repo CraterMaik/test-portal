@@ -7,12 +7,14 @@ class AuthService {
       const options = { path: "/", secure: true };
       CookieService.set("access_token", response.access_token, options);
       return true;
+      
     }
     let date = new Date();
     date.setTime(date.getTime() + expiresAt * 60 * 1000);
     const options = { path: "/", secure: true };
     CookieService.set("access_token", response.access_token, options);
     return true;
+
   }
 }
 
