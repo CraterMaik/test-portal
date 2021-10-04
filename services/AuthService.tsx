@@ -9,6 +9,7 @@ class AuthService {
       return true;
       
     }
+    
     let date = new Date();
     date.setTime(date.getTime() + expiresAt * 60 * 1000);
     const options = { path: "/", secure: true };
