@@ -8,6 +8,7 @@ export default function Login(props) {
       .then(res => {
         AuthService.handleLoginSuccess(res.data, true)
         window.location.href = `http://localhost:3000/me`;
+        
       })
       .catch(error => console.log(error));
       
