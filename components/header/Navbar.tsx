@@ -1,6 +1,7 @@
 import {useState,useEffect} from 'react';
 import {useTheme} from 'next-themes';
 import {MoonIcon, SunIcon} from '@heroicons/react/solid';
+import LoginLink from './LoginLinks';
 
 export default function NavBar() { 
   const {systemTheme, theme, setTheme} = useTheme();
@@ -44,10 +45,9 @@ export default function NavBar() {
           <div className="flex content-center justify-end md:flex lg:w-1/2 md:w-3/4 md:justify-end">
             <ul className="flex items-center justify-end flex-1 md:flex-none">
               {renderThemeChanger()}
+              
               <li className="flex flex-row items-center mr-5 cursor-pointer lg:mr-0">
-                <button className="box-border relative inline-flex items-center justify-center w-auto px-4 py-1 ml-2 overflow-hidden bg-gradient-to-r from-green-400 to-blue-500 text-white hover:from-blue-400 hover:to-green-400 transition-all duration-300 rounded shadow hover:shadow-card dark:bg-gray-800 dark:hover:bg-indigo-500 focus:outline-none">
-                  <span className="relative z-20 flex items-center text-xs">Login</span>
-                </button>
+                <LoginLink />
               </li>
             </ul>
           </div>

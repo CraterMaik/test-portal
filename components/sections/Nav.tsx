@@ -1,13 +1,19 @@
+import { useRouter } from 'next/router';
 import {ViewBoardsIcon, TerminalIcon, ViewGridIcon, ServerIcon, CollectionIcon, BeakerIcon, UsersIcon, ChartBarIcon, VideoCameraIcon, HomeIcon} from '@heroicons/react/solid';
 
+
 export default function Nav() { 
+  const router = useRouter()
+/*   <button type="button" onClick={() => router.push('/about')}>
+      Click me
+    </button> */
   return (
      <div className="sticky top-0 flex-col justify-between flex-none hidden w-1/6 h-full max-h-screen min-h-screen overflow-hidden text-sm lg:flex dark:text-gray-100">
         <div className="mt-24 md:mt-20">
           <ul className="text-left list-inside">
-              <li className="flex items-center font-medium pl-3 py-2 mb-1 cursor-pointer hover:bg-gray-200 menu-not-active dark:hover:bg-gray-900 hover:rounded">
+              <li onClick={() => router.push('/login')} className="flex items-center font-medium pl-3 py-2 mb-1 cursor-pointer hover:bg-gray-200 menu-not-active dark:hover:bg-gray-900 hover:rounded">
                 <HomeIcon className="h-6 w-6 mr-2" />
-                Inicio
+                  Inicio
               </li>
               <li className="flex items-center font-medium pl-3 py-2 mb-1 cursor-pointer hover:bg-gray-200 menu-not-active dark:hover:bg-gray-900 hover:rounded">
                 <ViewGridIcon className="h-6 w-6 mr-2" />
