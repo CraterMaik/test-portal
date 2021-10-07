@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "components/router/Auth.js", "pages/auth/discord/index.js"  ],
+, "components/router/Auth.js", "pages/auth/discord/index.tsx"  ],
   "exclude": [
     "node_modules"
   ]
