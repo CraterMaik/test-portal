@@ -1,3 +1,3 @@
 export default function Me() {
-  return <h1>Perfil</h1>
+  return <h1>Perfil Dashboard</h1>
 }

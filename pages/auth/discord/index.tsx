@@ -13,7 +13,7 @@ const Login = () => {
 
       if(res.statusText === 'OK') {
         AuthService.handleLoginSuccess(res.data, true)
-        router.push('/me')
+        router.push('/')
 
       } else {
         if (res.statusText === 'error') {
