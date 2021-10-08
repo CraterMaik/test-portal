@@ -1,3 +1,9 @@
+import { useRouter } from 'next/router';
+
 export default function User() {
-  return <h1>Perfil22</h1>
+  const router = useRouter();
+  const { username } = router.query
+
+  return <h2>@{username}</h2>
+  
 }
