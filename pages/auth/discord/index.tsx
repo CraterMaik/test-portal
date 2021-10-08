@@ -10,11 +10,19 @@ const Login = () => {
 
     Http.get(`/auth/discord/callback/${window.location.search}`)
     .then(res => {
-      AuthService.handleLoginSuccess(res.data, true)
-      router.push('/me')
+
+      if(res.statusText === 'OK') {
+        AuthService.handleLoginSuccess(res.data, true)
+        router.locales.push('/me')
+
+      } else {
+        if (res.statusText === 'error') {
+          router.locales.push('/error')
+        }
+      }
     })
     .catch(error => {
-      router.push('/404')
+      router.push('/error')
       console.log(error);
     });
       

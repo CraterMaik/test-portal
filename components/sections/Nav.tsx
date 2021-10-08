@@ -3,10 +3,8 @@ import {ViewBoardsIcon, TerminalIcon, ViewGridIcon, ServerIcon, CollectionIcon, 
 
 
 export default function Nav() { 
-  const router = useRouter()
-/*   <button type="button" onClick={() => router.push('/about')}>
-      Click me
-    </button> */
+  const router = useRouter();
+
   return (
      <div className="sticky top-0 flex-col justify-between flex-none hidden w-1/6 h-full max-h-screen min-h-screen overflow-hidden text-sm lg:flex dark:text-gray-100">
         <div className="mt-24 md:mt-20">
