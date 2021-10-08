@@ -13,11 +13,11 @@ const Login = () => {
 
       if(res.statusText === 'OK') {
         AuthService.handleLoginSuccess(res.data, true)
-        router.locales.push('/me')
+        router.push('/me')
 
       } else {
         if (res.statusText === 'error') {
-          router.locales.push('/error')
+          router.push('/error')
         }
       }
     })
