@@ -1,26 +1,25 @@
-import React, { FC, useEffect } from 'react'
-import { useRouter } from 'next/router'
+import React, { useEffect } from 'react';
+import { useRouter } from 'next/router';
 import AuthService from '../../../services/AuthService';
 import Http from '../../../services/HttpService';
 
-interface Props {
-  location: string;
-}
-
-const Login: FC<Props> = ({ location }) => {
+const Login = () => {
   const router = useRouter()
-  console.log(location)
-  location.search
+ 
   useEffect(() => {
 
-    Http.get(`/auth/discord/callback/${location.search}`)
+    Http.get(`/auth/discord/callback/${window.location.search}`)
     .then(res => {
       AuthService.handleLoginSuccess(res.data, true)
       router.push('/me')
     })
-    .catch(error => console.log(error));
+    .catch(error => {
+      router.push('/404')
+      console.log(error);
+    });
+      
 
-  }, [location]);
+  }, []);
 
   return (
     <div>

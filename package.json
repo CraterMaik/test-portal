@@ -18,6 +18,7 @@
   },
   "devDependencies": {
     "@types/node": "^16.9.1",
+    "@types/query-string": "^6.3.0",
     "@types/react": "^17.0.21",
     "@types/react-dom": "^17.0.9",
     "autoprefixer": "^10.2.6",
