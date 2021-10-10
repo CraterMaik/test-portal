@@ -1,14 +1,10 @@
 import {useState,useEffect,Fragment } from 'react';
 import {useTheme} from 'next-themes';
 import {MoonIcon, SunIcon, BellIcon, MenuIcon, XIcon} from '@heroicons/react/solid';
-import { Disclosure, Menu, Transition } from '@headlessui/react';
+import {Disclosure, Menu, Transition, Dialog, Popover, Tab} from '@headlessui/react';
+
 import LoginLink from './LoginLinks';
 import {classNames} from '../utils/className';
-/* 
-type Props = {
-  open: boolean;
-};
- */
 
 const user = {
   name: 'Tom Cook',
@@ -16,13 +12,7 @@ const user = {
   imageUrl:
     'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 };
-const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
-  { name: 'Reports', href: '#', current: false },
-];
+
 const userNavigation = [
   { name: 'Your Profile', href: '#' },
   { name: 'Settings', href: '#' },
@@ -58,6 +48,7 @@ export default function NavBar() {
 
   return (
      <div>
+       
       <Disclosure as="nav" className="fixed top-0 z-10 w-full mt-0 bg-white bg-opacity-95 shadow-card dark:bg-gray-900 backdrop-filter backdrop-blur-2x1">
           <>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-3">
