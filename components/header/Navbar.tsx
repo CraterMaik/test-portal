@@ -1,6 +1,6 @@
 import {useState,useEffect,Fragment } from 'react';
 import {useTheme} from 'next-themes';
-import {MoonIcon, SunIcon, BellIcon, MenuIcon, XIcon} from '@heroicons/react/solid';
+import {MoonIcon, SunIcon, BellIcon, MenuIcon, XIcon, SearchIcon, ShoppingBagIcon} from '@heroicons/react/solid';
 import {Disclosure, Menu, Transition, Dialog, Popover, Tab} from '@headlessui/react';
 
 import LoginLink from './LoginLinks';
@@ -48,130 +48,192 @@ export default function NavBar() {
 
   return (
      <div>
-       
-      <Disclosure as="nav" className="fixed top-0 z-10 w-full mt-0 bg-white bg-opacity-95 shadow-card dark:bg-gray-900 backdrop-filter backdrop-blur-2x1">
-          <>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-3">
-              <div className="flex items-center justify-between h-14">
-                <div className="flex items-center">
-                  <div className="flex-shrink-0">
-                    <a aria-current="page" href="/" className="flex flex-row overflow-hidden text-gray-900 no-underline cursor-pointer sm:mr-4 hover:text-gray-800 dark:text-gray-100 hover:no-underline">
-                      <img src="https://i.imgur.com/kU6Y9Ac.png" className="w-7 h-6 overflow-hidden" draggable="false" alt="Portalmybot" loading="lazy" />
-                      <div className="flex-col justify-end hidden pl-4 text-sm lg:flex">Portal MyBOT</div>
-                    </a>
-                  </div>
-                </div>
-                <div className="hidden md:block">
-                  <div className="ml-4 flex items-center md:ml-6">
-                     <button
-                      type="button"
-                      className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                    >
-                      <span className="sr-only">View notifications</span>
-                      <BellIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
+      {/* Mobile Menu */}
+      <Transition.Root show={open} as={Fragment}>
+        <Dialog as="div" className="fixed inset-0 flex z-40 lg:hidden" onClose={setOpen}>
+          <Transition.Child
+           as={Fragment}
+           enter="transition-opacity ease-linear duration-300"
+           enterFrom="opacity-0"
+           enterTo="opacity-100"
+           leave="transition-opacity ease-linear duration-300"
+           leaveFrom="opacity-100"
+           leaveTo="opacity-0"
+          >
+           <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-25" />
+          </Transition.Child>
+          <Transition.Child
+            as={Fragment}
+            enter="transition ease-in-out duration-300 transform"
+            enterFrom="-translate-x-full"
+            enterTo="translate-x-0"
+            leave="transition ease-in-out duration-300 transform"
+            leaveFrom="translate-x-0"
+            leaveTo="-translate-x-full"
+          >
+           <div className="relative max-w-xs w-full bg-white shadow-xl pb-12 flex flex-col overflow-y-auto">
+             <div className="px-4 pt-5 pb-2 flex">
+              <button
+               type="button"
+               className="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400"
+               onClick={() => setOpen(false)}
 
-                    {renderThemeChanger()}
-                    
-                    {/* Profile dropdown */}
-                    <Menu as="div" className="ml-3 relative">
-                      
-                      <div>
-                        <Menu.Button className="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                          <span className="sr-only">Open user menu</span>
-                          <img className="h-8 w-8 rounded-full" src={user.imageUrl} alt="" />
-                        </Menu.Button>
+              >
+                <span className="sr-only">Close menu</span>
+                <XIcon className="h-6 w-6" aria-hidden="true" />
+              </button>
+
+             </div>
+           </div>
+          </Transition.Child>
+        </Dialog>
+      </Transition.Root>
+
+       <header className="fixed top-0 z-10 w-full mt-0 bg-white bg-opacity-95 shadow-card dark:bg-gray-900 backdrop-filter backdrop-blur-2x1">
+         <nav aria-label="Top" className="max-w-7x1 mx-auto px-4 sm:px-9 lg:px-8">
+           <div className="border-b boder-gray-200">
+             <div className="h-16 flex items-center">
+                <button type="button" className="bg-white p-2 rounded-md text-gray-400 lg:hidden" onClick={() => setOpen(true)}>
+                 <span className="sr-only">Open menu</span>
+                 <MenuIcon className="h-6 w-6" aria-hidden="true" />
+
+                </button>
+
+                {/* Logo */}
+                <div className="ml-4 flex lg:ml-0">
+                  <a href="#">
+                    <span className="sr-only">Workflow</span>
+                    <img className="h-8 w-auto" src="https://i.imgur.com/kU6Y9Ac.png" alt="Logo Portalmybot" />
+                  </a>
+                </div>
+
+                {/* Flyout menus */}
+                <Popover.Group className="hidden lg:ml-8 lg:block lg:self-stretch" >
+                 <div className="h-full flex space-x-8">
+                   <Popover key="x-1" className="flex">
+                    {({open}) => (
+                     <>
+                      <div className="relative flex">
+                        <Popover.Button 
+                         className={classNames(
+                          open
+                           ? 'border-indigo-600 text-indigo-600'
+                           : 'border-transparent text-gray-700 hover:text-gray-800',
+                          'relative z-10 flex items-center transition-colors ease-out duration-200 text-sm font-medium border-b-2 -mb-px pt-px'
+                         )}>
+                           Categoria
+                        </Popover.Button>
                       </div>
-                      <Transition
-                        as={Fragment}
-                        enter="transition ease-out duration-100"
-                        enterFrom="transform opacity-0 scale-95"
-                        enterTo="transform opacity-100 scale-100"
-                        leave="transition ease-in duration-75"
-                        leaveFrom="transform opacity-100 scale-100"
-                        leaveTo="transform opacity-0 scale-95"
+
+                      <Transition 
+                       as={Fragment}
+                       enter="transition ease-out duration-200"
+                       enterFrom="opacity-0"
+                       enterTo="opacity-100"
+                       leave="transition ease-in duration-150"
+                       leaveFrom="opacity-100"
+                       leaveTo="opacity-0"
                       >
-                        <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                          {userNavigation.map((item) => (
-                            <Menu.Item key={item.name}>
-                              {({ active }) => (
-                                <a
-                                  href={item.href}
-                                  className={classNames(
-                                    active ? 'bg-gray-100' : '',
-                                    'block px-4 py-2 text-sm text-gray-700'
-                                  )}
-                                >
-                                  {item.name}
-                                </a>
-                              )}
-                            </Menu.Item>
-                          ))}
-                        </Menu.Items>
+                       <Popover.Panel className="absolute top-full inset-x-0 text-sm text-gray-500">
+                        <div className="absolute inset-0 top-1/2 bg-white shadow" aria-hidden="true" />
+                          <div className="relative bg-white">
+                           <div className="max-w-7xl mx-auto px-8">
+                            <div className="grid grid-cols-2 gap-y-10 gap-x-8 py-16">
+                             <div className="col-start-2 grid grid-cols-2 gap-x-8">
+                              <div key="item-11" className="group relative text-base sm:text-sm">
+                                <div className="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
+                                  <img
+                                    src='https://tailwindui.com/img/ecommerce-images/mega-menu-category-01.jpg'
+                                    alt='img'
+                                    className="object-center object-cover"
+                                   />
+                                 </div>
+                                 <a href="#" className="mt-6 block font-medium text-gray-900">
+                                  <span className="absolute z-10 inset-0" aria-hidden="true" />
+                                  item name
+                                 </a>
+                                 <p aria-hidden="true" className="mt-1">
+                                  Show now
+                                 </p>
+
+                              </div>
+                             </div>
+                             <div className="row-start-1 grid grid-cols-3 gap-y-10 gap-x-8 text-sm">
+                               <div key="section-11">
+                                 <p id="name-heading" className="font-medium text-gray-900">
+                                  section name
+                                 </p>
+                                 <ul role="list"
+                                  aria-labelledby={`label-heading`}
+                                  className="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
+                                   <li key='item-label11' className="flex">
+                                     <a href='#' className="hover:text-gray-800">
+                                       item Name
+                                     </a>
+                                  </li>
+                                 </ul>
+                               </div>
+                             </div>
+                            </div>
+                           </div>
+                          </div>
+                       </Popover.Panel>
                       </Transition>
-                    </Menu>
-
-                  </div>
-                </div>
-                <div className="-mr-2 flex md:hidden">
-                  {/* Mobile menu button */}
-                  <Disclosure.Button className="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                    
-                    {open ? (
-                      <XIcon className="block h-6 w-6" aria-hidden="true" onClick={() => setOpen(false)} />
-                    ) : (
-                      <MenuIcon
-                        className="block h-6 w-6"
-                        aria-hidden="true" onClick={() => setOpen(true)}
-                      />
+                     </>
                     )}
-                   
-                  </Disclosure.Button>
-                </div>
-              </div>
-            </div>
-            
-            <Disclosure.Panel className="md:hidden">
-             
-              <div className="pt-4 pb-3 border-t border-gray-700">
-                <div className="flex items-center px-5">
-                  <div className="flex-shrink-0">
-                    <img className="h-10 w-10 rounded-full" src={user.imageUrl} alt="" />
-                  </div>
-                  <div className="ml-3">
-                    <div className="text-base font-medium leading-none text-white">{user.name}</div>
-                    <div className="text-sm font-medium leading-none text-gray-400">{user.email}</div>
-                  </div>
-                  <button
-                    type="button"
-                    className="ml-auto bg-gray-800 flex-shrink-0 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                  >
-                    <span className="sr-only">View notifications</span>
-                    <BellIcon className="h-6 w-6" aria-hidden="true" />
-                  </button>
-                  {renderThemeChanger()}
-                </div>
-                
-                <div className="mt-3 px-2 space-y-1">
-                  
-                  {userNavigation.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700"
-                    >
-                      {item.name}
-                    </a>
-                  ))}
-                </div>
-              </div>
+                   </Popover>
+                   <a key="nav-33" className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800" href="#">
+                    page Name
+                   </a>
+                 </div>
 
-            </Disclosure.Panel>
+                </Popover.Group>
+                <div className="ml-auto flex items-center">
+                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+                  <a href="#" className="text-sm font-medium text-gray-700 hover:text-gray-800">
+                   sing in
+                  </a>
+                  <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
+                  <a href="#" className="text-sm font-medium text-gray-700 hover:text-gray-800">
+                    Create account
+                  </a>
+                 </div>
+                 <div className="hidden lg:ml-8 lg:flex">
+                  <a href="#" className="text-gray-700 hover:text-gray-800 flex items-center">
+                   <img 
+                     src="https://tailwindui.com/img/flags/flag-canada.svg"
+                     alt=""
+                     className="w-5 h-auto block flex-shrink-0" />
+                     <span className="ml-3 block text-sm font-medium">CAD</span>
+                    <span className="sr-only">, change currency</span>
+                  </a>
+                 </div>
+                 {/* Search */}
+                 <div className="flex lg:ml-6">
+                   <a href="#" className="p-2 text-gray-400 hover:text-gray-500">
+                     <span className="sr-only">Search</span>
+                     <SearchIcon className="w-6 h-6" aria-hidden="true" />
+                   </a>
+                 </div>
 
-          </>
-        
-      </Disclosure>
+                 {/* Cart */}
+                 <div className="ml-4 flow-root lg:ml-6">
+                   <a href="#" className="group -m-2 p-2 flex items-center">
+                     <ShoppingBagIcon
+                       className="flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-gray-500"
+                       aria-hidden="true"
+                     />
+                     <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
+                     <span className="sr-only">items in cart, view bag</span>
+                   </a>
+                 </div>
 
+                </div>
+
+             </div>
+           </div>
+         </nav>
+       </header>
      </div>
       
   )
