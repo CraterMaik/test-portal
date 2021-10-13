@@ -82,6 +82,30 @@ export default function NavBar() {
                 <span className="sr-only">Close menu</span>
                 <XIcon className="h-6 w-6" aria-hidden="true" />
               </button>
+             </div>
+
+             <div className="border-t border-gray-200 py-6 px-4 space-y-6">
+               <div key="navi-key10" className="flow-root">
+                 <a href="#" className="-m-2 p-2 block font-medium text-gray-900">
+                    page Name
+                 </a>
+               </div>
+               <div className="flow-root">
+                 <a href="#" className="-m-2 p-2 block font-medium text-gray-900">
+                   Create account
+                 </a>
+               </div>
+             </div>
+             <div className="border-t border-gray-200 py-6 px-4">
+               <a href="#" className="-m-2 p-2 flex items-center">
+                 <img
+                  src="https://tailwindui.com/img/flags/flag-canada.svg"
+                  alt=""
+                  className="w-5 h-auto block flex-shrink-0"
+                  />
+                  <span className="ml-3 block text-base font-medium text-gray-900">CAD</span>
+                  <span className="sr-only">, change currency</span>
+               </a>
 
              </div>
            </div>
@@ -91,7 +115,7 @@ export default function NavBar() {
 
        <header className="fixed top-0 z-10 w-full mt-0 bg-white bg-opacity-95 shadow-card dark:bg-gray-900 backdrop-filter backdrop-blur-2x1">
          <nav aria-label="Top" className="max-w-7x1 mx-auto px-4 sm:px-9 lg:px-8">
-           <div className="border-b boder-gray-200">
+           <div>
              <div className="h-16 flex items-center">
                 <button type="button" className="bg-white p-2 rounded-md text-gray-400 lg:hidden" onClick={() => setOpen(true)}>
                  <span className="sr-only">Open menu</span>
