@@ -2,7 +2,6 @@ import {useState,useEffect,Fragment } from 'react';
 import {useTheme} from 'next-themes';
 import {MoonIcon, SunIcon, BellIcon, MenuIcon, XIcon, SearchIcon, ShoppingBagIcon} from '@heroicons/react/solid';
 import {Disclosure, Menu, Transition, Dialog, Popover, Tab} from '@headlessui/react';
-
 import LoginLink from './LoginLinks';
 import {classNames} from '../utils/className';
 
@@ -126,7 +125,7 @@ export default function NavBar() {
                 {/* Logo */}
                 <div className="ml-4 flex items-center lg:ml-0" aria-label="Home" data-balloon-pos="right">
                   <a aria-current="page" href="/" className="flex flex-row -m-2 overflow-hidden text-gray-900 no-underline cursor-pointer sm:mr-4 hover:text-gray-800 dark:text-gray-100 hover:no-underline">
-                    <img src="https://i.imgur.com/kU6Y9Ac.png" className="h-7 w-auto overflow-hidden" draggable="false" alt="Portalmybot" loading="lazy" />
+                    <img src="./portalmybotLogo.png" className="h-7 w-auto overflow-hidden" draggable="false" alt="Portalmybot" loading="lazy" />
                     <div className="flex-col justify-end hidden pl-4 text-sm lg:flex">Portal MyBOT</div>
                   </a>
                 </div>
