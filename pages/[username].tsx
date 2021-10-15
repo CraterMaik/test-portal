@@ -1,9 +1,29 @@
 import { useRouter } from 'next/router';
+import useSwr from 'swr';
+
+const fetcher = (url) => fetch(url).then((res) => res.json())
 
 export default function User() {
   const router = useRouter();
   const { username } = router.query
 
-  return <h2>@{username}</h2>
+  const { data: user, error } = useSwr('/api/me/auth', fetcher)
+
+  if (error) return <div>Failed to load users</div>
+  if (!user) return <div>Loading...</div>
+ 
+  return (
+    <>
+      <h2>@{username}</h2>
+      <ul>
+        
+        <li key={user.social_provider}>
+          {user.social_provider}
+        </li>
+        
+      </ul>
+    </>
+    
+  )
   
 }
