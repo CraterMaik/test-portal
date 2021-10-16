@@ -10,6 +10,7 @@
     "@headlessui/react": "^1.4.1",
     "@heroicons/react": "^1.0.4",
     "axios": "^0.22.0",
+    "cookie": "^0.4.1",
     "next": "latest",
     "next-themes": "0.0.15",
     "nookies": "^2.5.2",
@@ -19,6 +20,7 @@
     "universal-cookie": "^4.0.4"
   },
   "devDependencies": {
+    "@types/cookie": "^0.4.1",
     "@types/node": "^16.9.1",
     "@types/query-string": "^6.3.0",
     "@types/react": "^17.0.21",
