@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import Http from "../../services/HttpService"
+import Http from '../../components/services/HttpService';
 
 type Data = {
   data: string

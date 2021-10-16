@@ -7,20 +7,15 @@ export default function User() {
   const router = useRouter();
   const { username } = router.query
 
-  const { data: user, error } = useSwr('/api/me/auth', fetcher)
+  const { data: user, error } = useSwr('/api/users', fetcher)
 
   if (error) return <div>Failed to load users</div>
   if (!user) return <div>Loading...</div>
- 
+  
   return (
     <>
       <h2>@{username}</h2>
       <ul>
-        
-        <li key={user.social_provider}>
-          {user.social_provider}
-        </li>
-        
       </ul>
     </>
     

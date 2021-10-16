@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import AuthService from '../../../services/AuthService';
-import Http from '../../../services/HttpService';
+import AuthService from '../../../components/services/AuthService';
+import Http from '../../../components/services/HttpService';
 
 const Login = () => {
   const router = useRouter()

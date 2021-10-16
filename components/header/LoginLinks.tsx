@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import {useRouter} from 'next/router';
 import Auth from '../router/Auth';
-import HttpService from '../../services/HttpService';
+import HttpService from '../../components/services/HttpService';
 
 export default function LoginLink() {
   const router = useRouter();

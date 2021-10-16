@@ -1,5 +1,4 @@
-import CookieService from "../../services/CookieService";
-
+import CookieService from "../../components/services/CookieService";
 class Auth {
 
   authenticated:boolean;
@@ -7,7 +6,6 @@ class Auth {
   constructor() {
     const token = CookieService.get("access_token");
     token ? (this.authenticated = true) : (this.authenticated = false);
-
   }
 
   logout(cb) {
