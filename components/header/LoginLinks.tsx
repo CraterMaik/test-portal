@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { Fragment } from 'react'
+import React, { useEffect, useState, Fragment } from 'react';
 import { Menu, Transition } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/solid';
-import { BellIcon } from '@heroicons/react/outline'
 import Link from 'next/link';
 import {useRouter} from 'next/router';
 import Auth from '../router/Auth';
