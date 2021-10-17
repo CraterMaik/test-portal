@@ -1,23 +1,14 @@
 import React, {useState,useEffect,Fragment } from 'react';
+import { Menu, Transition, Dialog } from '@headlessui/react';
 import {useTheme} from 'next-themes';
-import {MoonIcon, SunIcon, MenuIcon, XIcon} from '@heroicons/react/solid';
-import {Disclosure, Menu, Transition, Dialog} from '@headlessui/react';
+import {MoonIcon, SunIcon, MenuIcon, XIcon, ChevronDownIcon} from '@heroicons/react/solid';
 import LoginLink from './LoginLinks';
-import {classNames} from '../utils/className';
-import {ViewBoardsIcon, TerminalIcon, ViewGridIcon, ServerIcon, CollectionIcon, BeakerIcon, UsersIcon, ChartBarIcon, VideoCameraIcon, HomeIcon} from '@heroicons/react/solid';
 
-const user = {
-  name: 'Tom Cook',
-  email: 'tom@example.com',
-  imageUrl:
-    'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-};
+import {ViewGridAddIcon, ViewBoardsIcon, TerminalIcon, ViewGridIcon, ServerIcon, CollectionIcon, BeakerIcon, UsersIcon, ChartBarIcon, VideoCameraIcon, HomeIcon} from '@heroicons/react/solid';
 
-const userNavigation = [
-  { name: 'Your Profile', href: '#' },
-  { name: 'Settings', href: '#' },
-  { name: 'Sign out', href: '#' },
-];
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ')
+}
 
 
 export default function NavBar() { 
@@ -36,11 +27,11 @@ export default function NavBar() {
     
     if (currentTheme === 'dark') {
       return (
-        <SunIcon className="w-7 h-7 ml-2 mr-2" role="button" onClick={() => setTheme('light') } />
+        <SunIcon className="w-7 h-7 ml-4 mr-1" role="button" onClick={() => setTheme('light') } />
       );
     } else {
       return (
-        <MoonIcon className="w-7 h-7 ml-2 mr-2" role="button" onClick={() => setTheme('dark') } />
+        <MoonIcon className="w-7 h-7 ml-4 mr-1" role="button" onClick={() => setTheme('dark') } />
       );
     }
   }
@@ -160,8 +151,93 @@ export default function NavBar() {
                 </div>
                 
                 <div className="ml-auto flex items-center">
-                 {renderThemeChanger()}
-                  <LoginLink />
+                 
+                  <Menu as="div" className="ml-3 relative inline-block">
+                    <div>
+                      <Menu.Button className=" w-full bg-white dark:bg-gray-900 flex text-sm rounded-full focus:outline-none">
+                        <ViewGridAddIcon className="w-7 h-7"/>
+                        <ChevronDownIcon className="-mr-1 ml-1 mt-2 h-5 w-5" aria-hidden="true" />
+                      </Menu.Button>
+                    </div>
+                    <Transition
+                      as={Fragment}
+                      enter="transition ease-out duration-100"
+                      enterFrom="transform opacity-0 scale-95"
+                      enterTo="transform opacity-100 scale-100"
+                      leave="transition ease-in duration-75"
+                      leaveFrom="transform opacity-100 scale-100"
+                      leaveTo="transform opacity-0 scale-95"
+                    >
+                      <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white dark:bg-gray-700 ring-1 ring-black ring-opacity-5 focus:outline-none">
+                          
+                        <Menu.Item>
+                          {({ active }) => (
+                            <a
+                              href="#"
+                              className={classNames(active ? 'bg-gray-100 dark:bg-gray-800' : '', 'block px-4 py-2 text-sm text-gray-700 dark:text-white')}
+                            >
+                              Agregar una Guía
+                            </a>
+                          )}
+                        </Menu.Item>
+                        <Menu.Item>
+                          {({ active }) => (
+                            <a
+                              href="#"
+                              className={classNames(active ? 'bg-gray-100 dark:bg-gray-800' : '', 'block px-4 py-2 text-sm text-gray-700 dark:text-white')}
+                            >
+                              Agregar un Código
+                            </a>
+                          )}
+                        </Menu.Item>
+                        <Menu.Item>
+                          {({ active }) => (
+                            <a
+                              href="#"
+                              className={classNames(active ? 'bg-gray-100 dark:bg-gray-800' : '', 'block px-4 py-2 text-sm text-gray-700 dark:text-white')}
+                            >
+                              Agregar un Bot
+                            </a>
+                          )}
+                        </Menu.Item>
+                        <Menu.Item>
+                          {({ active }) => (
+                            <a
+                              href="#"
+                              className={classNames(active ? 'bg-gray-100 dark:bg-gray-800' : '', 'block px-4 py-2 text-sm text-gray-700 dark:text-white')}
+                            >
+                              Agregar un Servidor
+                            </a>
+                          )}
+                        </Menu.Item>
+                        <Menu.Item>
+                          {({ active }) => (
+                            <a
+                              href="#"
+                              className={classNames(active ? 'bg-gray-100 dark:bg-gray-800' : '', 'block px-4 py-2 text-sm text-gray-700 dark:text-white')}
+                            >
+                              Agregar un Proyecto
+                            </a>
+                          )}
+                        </Menu.Item>
+                        <Menu.Item>
+                          {({ active }) => (
+                            <a
+                              href="#"
+                              className={classNames(active ? 'bg-gray-100 dark:bg-gray-800' : '', 'block px-4 py-2 text-sm text-gray-700 dark:text-white')}
+                            >
+                              Solicitar un Logro
+                            </a>
+                          )}
+                        </Menu.Item>
+                        
+                       
+                      </Menu.Items>
+                    </Transition>
+                </Menu>
+                
+                <LoginLink />
+                {renderThemeChanger()}
                 </div>
 
              </div>
