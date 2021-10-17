@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Fragment } from 'react'
-import { Menu, Transition } from '@headlessui/react'
+import { Menu, Transition } from '@headlessui/react';
+import { ChevronDownIcon } from '@heroicons/react/solid'
 import Link from 'next/link';
 import {useRouter} from 'next/router';
 import Auth from '../router/Auth';
@@ -38,15 +39,16 @@ export default function LoginLink() {
   return (
     <>
       {Auth.isAuthenticated() ? (
-        <Menu as="div" className="ml-3 relative">
+        <Menu as="div" className="ml-3 relative inline-block">
           <div>
-            <Menu.Button className="bg-gray-700 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+            <Menu.Button className=" w-full bg-white dark:bg-gray-900 flex text-sm rounded-full focus:outline-none">
               <span className="sr-only">Open user menu</span>
               <img
                 className="h-8 w-8 rounded-full"
                 src={user.social_avatarUrl}
                 alt=""
               />
+              <ChevronDownIcon className="-mr-1 ml-1 mt-2 h-5 w-5" aria-hidden="true" />
             </Menu.Button>
           </div>
           <Transition
