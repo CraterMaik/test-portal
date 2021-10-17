@@ -28,7 +28,13 @@ export default function LoginLink() {
 
   }, [])
   if (error) return <div>Failed to load users</div>
-  if (!user) return <div>Loading...</div>
+  if (!user) return (
+    <>
+      <div className="flex animate-pulse flex-row items-center h-full justify-center space-x-5 ml-3">
+        <div className="w-8 bg-gray-300 h-8 rounded-full "/>
+      </div>
+    </>
+  )
   return (
     <>
       {Auth.isAuthenticated() ? (
