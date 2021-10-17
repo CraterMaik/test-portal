@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react';
-import { ChevronDownIcon } from '@heroicons/react/solid'
+import { ChevronDownIcon } from '@heroicons/react/solid';
+import { BellIcon } from '@heroicons/react/outline'
 import Link from 'next/link';
 import {useRouter} from 'next/router';
 import Auth from '../router/Auth';
@@ -61,13 +62,23 @@ export default function LoginLink() {
             leaveTo="transform opacity-0 scale-95"
           >
             <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white dark:bg-gray-700 ring-1 ring-black ring-opacity-5 focus:outline-none">
+                <div className="flex items-center p-3 border-b border-gray-200 dark:border-gray-600">
+                  <div className="flex-shrink-0">
+                    <img className="h-8 w-8 rounded-full" src={user.social_avatarUrl} alt="" />
+                  </div>
+                  <div className="ml-3">
+                    <div className="text-base font-medium leading-none text-gray-800 dark:text-white">Crater</div>
+                    <div className="text-xs font-medium leading-none text-gray-400 mt-1">@{user.social_provider}</div>
+                  </div>
+
+                </div>
               <Menu.Item>
                 {({ active }) => (
                   <a
                     href="#"
                     className={classNames(active ? 'bg-gray-100 dark:bg-gray-800' : '', 'block px-4 py-2 text-sm text-gray-700 dark:text-white')}
                   >
-                    Your Profile
+                    Mi Perfil
                   </a>
                 )}
               </Menu.Item>
@@ -77,9 +88,9 @@ export default function LoginLink() {
                     href="#"
                     className={classNames(active ? 'bg-gray-100 dark:bg-gray-800' : '', 'block px-4 py-2 text-sm text-gray-700 dark:text-white')}
                   >
-                    Settings
+                    Dashboard
                   </a>
-                          )}
+                )}
               </Menu.Item>
               <Menu.Item>
                 {({ active }) => (
@@ -87,10 +98,32 @@ export default function LoginLink() {
                     href="#"
                     className={classNames(active ? 'bg-gray-100 dark:bg-gray-800' : '', 'block px-4 py-2 text-sm text-gray-700 dark:text-white')}
                   >
-                    Sign out
+                    Configuración
                   </a>
                 )}
               </Menu.Item>
+              <Menu.Item>
+                {({ active }) => (
+                  <a
+                    href="#"
+                    className={classNames(active ? 'bg-gray-100 dark:bg-gray-800' : '', 'block px-4 py-2 text-sm text-gray-700 dark:text-white')}
+                  >
+                    Ayuda
+                  </a>
+                )}
+              </Menu.Item>
+              <div className="border-t border-gray-200 dark:border-gray-600">
+                <Menu.Item>
+                  {({ active }) => (
+                    <a
+                      href="#"
+                      className={classNames(active ? 'bg-pink-500 dark:bg-pink-500' : '', 'block px-4 py-2 text-sm text-gray-700 dark:text-white')}
+                    >
+                      Cerrar Sección
+                    </a>
+                  )}
+                </Menu.Item>
+              </div>
             </Menu.Items>
           </Transition>
       </Menu>
