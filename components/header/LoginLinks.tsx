@@ -16,7 +16,17 @@ const fetcher = (url) => fetch(url).then((res) => res.json())
 export default function LoginLink() {
   const router = useRouter();
   const [login, setLogin] = useState('');
+
   const { data: user, error } = useSwr('/api/me/auth', fetcher)
+
+  const handleLogout = async () => {
+    useSwr('/api/me/logout', fetcher)
+    console.log('entro click');
+    
+    await router.push('/')
+
+
+  }
 
   useEffect(() => {
     
@@ -25,9 +35,10 @@ export default function LoginLink() {
         const { url } = response.data;
         setLogin(url);
       })
-
+      
   }, [])
-  if (error) return <div>Failed to load users</div>
+  console.log(user)
+ // if (error) return <div>Failed to load users</div>
   if (!user) return (
     <>
       <div className="flex animate-pulse flex-row items-center h-full justify-center space-x-5 ml-3">
@@ -35,6 +46,7 @@ export default function LoginLink() {
       </div>
     </>
   )
+  
   return (
     <>
       {Auth.isAuthenticated() ? (
@@ -44,7 +56,7 @@ export default function LoginLink() {
               <span className="sr-only">Open user menu</span>
               <img
                 className="h-8 w-8 rounded-full"
-                src={user.social_avatarUrl}
+                src={user ? user.social_avatarUrl : null}
                 alt=""
               />
               <ChevronDownIcon className="-mr-1 ml-1 mt-2 h-5 w-5" aria-hidden="true" />
@@ -126,7 +138,7 @@ export default function LoginLink() {
           </Transition>
       </Menu>
       ) : (
-        <>
+        <div className="ml-2">
           <Link href={login}>
             <button className="box-border relative inline-flex items-center justify-center w-auto px-4 py-1 ml-2 overflow-hidden bg-gradient-to-r from-green-400 to-blue-500 text-white hover:from-blue-400 hover:to-green-400 transition-all duration-300 rounded shadow hover:shadow-card dark:bg-gray-800 dark:hover:bg-indigo-500 focus:outline-none">
             <span className="relative z-20 flex items-center text-xs">Login</span>
@@ -136,7 +148,7 @@ export default function LoginLink() {
             Crear cuenta
           </a>
 
-        </>
+        </div>
         
       )}
     </>
