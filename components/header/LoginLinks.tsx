@@ -126,8 +126,8 @@ export default function LoginLink() {
                 <Menu.Item>
                   {({ active }) => (
                     <a
-                      href="#"
-                      className={classNames(active ? 'bg-pink-500 dark:bg-pink-500' : '', 'block px-4 py-2 text-sm text-gray-700 dark:text-white')}
+                      className={classNames(active ? 'bg-pink-500 dark:bg-pink-500' : '', 'block px-4 py-2 text-sm text-gray-700 dark:text-white cursor-pointer')}
+                      onClick={() => alert('Hola mundo!!')}
                     >
                       Cerrar Sección
                     </a>
