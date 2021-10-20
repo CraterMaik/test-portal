@@ -21,7 +21,6 @@ export default function NavRight() {
             <a className="flex justify-between w-full px-3 py-2 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700" href="/">
               <span>Dashboard</span>
             </a>
-
           </div>
           <div className="p-2 mt-5 text-left bg-white rounded-t-lg dark:bg-gray-900 shadow-card">
             <h1 className="mx-1">Top Usuarios</h1>
