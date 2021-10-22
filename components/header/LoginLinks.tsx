@@ -38,7 +38,7 @@ export default function LoginLink() {
       
   }, [])
   console.log(user)
- // if (error) return <div>Failed to load users</div>
+ 
   if (!user) return (
     <>
       <div className="flex animate-pulse flex-row items-center h-full justify-center space-x-5 ml-3">
