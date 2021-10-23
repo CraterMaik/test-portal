@@ -12,33 +12,30 @@ function classNames(...classes) {
 }
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
+const fetcher2 = (url) => fetch(url).then((res) => res.json())
 
 export default function LoginLink() {
   const router = useRouter();
   const [login, setLogin] = useState('');
 
   const { data: user, error } = useSwr('/api/me/auth', fetcher)
-
-  const handleLogout = async () => {
-    useSwr('/api/me/logout', fetcher)
-    console.log('entro click');
-    
-    await router.push('/')
-
-
-  }
-
+  
   useEffect(() => {
     
     Http.get('/auth/discord/login')
-      .then((response) => {
-        const { url } = response.data;
-        setLogin(url);
-      })
-      
+    .then((response) => {
+      const { url } = response.data;
+      setLogin(url);
+    })
+    
   }, [])
-  console.log(user)
- 
+  
+   function handleLogout() {
+    
+     console.log('Test..');
+     
+   };
+
   if (!user) return (
     <>
       <div className="flex animate-pulse flex-row items-center h-full justify-center space-x-5 ml-3">
@@ -125,12 +122,12 @@ export default function LoginLink() {
               <div className="border-t border-gray-200 dark:border-gray-600">
                 <Menu.Item>
                   {({ active }) => (
-                    <a
-                      className={classNames(active ? 'bg-pink-500 dark:bg-pink-500' : '', 'block px-4 py-2 text-sm text-gray-700 dark:text-white cursor-pointer')}
-                      onClick={() => alert('Hola mundo!!')}
+                    <button
+                      className={classNames(active ? 'dark:text-pink-500' : '', 'px-4 py-2 text-sm text-gray-700 dark:text-white cursor-pointer')}
+                      onClick={handleLogout}
                     >
                       Cerrar Sección
-                    </a>
+                    </button>
                   )}
                 </Menu.Item>
               </div>
