@@ -2,9 +2,11 @@ import React, { useEffect, useState, Fragment } from 'react';
 import { Menu, Transition } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/solid';
 import Link from 'next/link';
+import axios from 'axios';
 import {useRouter} from 'next/router';
 import Auth from '../router/Auth';
 import Http from '../../components/services/HttpService';
+import CookieService from '../../components/services/CookieService';
 import useSwr from 'swr';
 
 function classNames(...classes) {
@@ -12,7 +14,6 @@ function classNames(...classes) {
 }
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
-const fetcher2 = (url) => fetch(url).then((res) => res.json())
 
 export default function LoginLink() {
   const router = useRouter();
@@ -30,9 +31,20 @@ export default function LoginLink() {
     
   }, [])
   
-   function handleLogout() {
-    
-     console.log('Test..');
+   async function handleLogout() {
+    console.log(CookieService.get('access_token'));
+      axios.get('http://127.0.0.1:8000/api/v1/logout',
+        {
+          headers: {
+          "Accept": "application/json",
+          "Authorization": `Bearer ${CookieService.get('access_token')}`
+          }
+        }
+      ).then((resp) => {
+        CookieService.remove('access_token');
+        router.push('/crater');
+      })
+   
      
    };
 
