@@ -44,8 +44,7 @@ export default function LoginLink() {
         CookieService.remove('access_token');
         router.push('/crater');
       })
-   
-     
+
    };
 
   if (!user) return (

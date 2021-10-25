@@ -11,7 +11,7 @@ export default function Nav() {
           <ul className="text-left list-inside">
               <li onClick={() => router.push('/login')} className="flex items-center font-medium pl-3 py-2 mb-1 cursor-pointer hover:bg-gray-200 menu-not-active dark:hover:bg-gray-900 hover:rounded">
                 <HomeIcon className="h-6 w-6 mr-2" />
-                  Inicio
+                Inicio
               </li>
               <li className="flex items-center font-medium pl-3 py-2 mb-1 cursor-pointer hover:bg-gray-200 menu-not-active dark:hover:bg-gray-900 hover:rounded">
                 <ViewGridIcon className="h-6 w-6 mr-2" />

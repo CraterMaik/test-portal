@@ -1,4 +1,3 @@
-import React from "react";
 import NavBar from '../components/header/Navbar';
 import Nav from '../components/sections/Nav';
 import Home from '../components/sections/Home';
@@ -9,7 +8,7 @@ export default function App() {
     <>
     
      <NavBar />
-     
+        
      <div className="container mx-auto">
         <div className="flex">
           <Nav/>
