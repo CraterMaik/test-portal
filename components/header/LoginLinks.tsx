@@ -39,10 +39,12 @@ export default function LoginLink() {
           "Accept": "application/json",
           "Authorization": `Bearer ${CookieService.get('access_token')}`
           }
+
         }
       ).then((resp) => {
         CookieService.remove('access_token');
-        router.push('/crater');
+        router.push('/me');
+
       })
 
    };
