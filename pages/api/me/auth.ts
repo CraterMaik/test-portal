@@ -7,13 +7,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   try {
     if(req.cookies.access_token) {
       axios.defaults.headers.common['Authorization'] = `Bearer ${req.cookies.access_token}`;
-      // Get data from your database
+      
       const { data } = await Http.get("/user");
       res.status(200).json(data[0]);
       
     } else {
-      
       res.status(400).json({data: null});
+      
     }
 
   } catch (err) {
