@@ -11,11 +11,13 @@ export default function App() {
         
      <div className="container mx-auto">
         <div className="flex">
-          <Nav/>
+          <Nav />
           <Home />
           <NavRight />
+
         </div>
      </div>
+     
     </>
 
   )
