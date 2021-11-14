@@ -7,7 +7,7 @@ export default function App() {
   return (
     <>
     
-     <NavBar />
+     
         
      <div className="container mx-auto">
         <div className="flex">
